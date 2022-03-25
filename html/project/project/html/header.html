@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>해더</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        #header {
+            width: 1920px;
+            height: 78px;
+            display: flex;
+            justify-content: space-between;
+            color: #107af2;
+            align-items: center;
+        }
+        .logo {
+            display: flex;
+            margin-left: 35px;
+            padding-top: 12px;
+        }
+        .logo .logo_img{
+            width: 50px;
+            height: 50px;
+            background: url(../html/img/스프라이트.svg);
+            background-position: 0px 0px;
+            margin-right: 20px; 
+            background-color: #ccc;
+        }
+        .menu ul {
+            display: flex;
+        }
+        .menu ul li {
+            list-style: none;
+            margin-top: 26px;
+            margin-left: 10px;
+        }
+        .menu ul li:nth-child(2) {
+            margin-right: 35px;
+        }
+        .menu ul li a{
+            text-decoration: none;
+            color: #107af2;
+            padding: 8px 22px;
+            border: 1px solid #107af2;
+            border-radius: 60px;
+        }
+
+    </style>
+</head>
+<body>
+    <header id="header">
+        <div class="logo">
+            <span class="logo_img"></span>
+            <h1>Charge Find</h1>
+        </div>
+        <nav class="menu">
+            <ul>
+                <li><a href="#">회원가입</a></li>
+                <li><a href="#">로그인</a></li>
+            </ul>
+        </nav>
+
+    </header>
+</body>
+</html>

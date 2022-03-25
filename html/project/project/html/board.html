@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charge Find</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/reset.css">
+    <link rel="stylesheet" href="../assets/css/common.css">
+    <link rel="stylesheet" href="../assets/css/font.css">
+
+    <!-- 주소
+    http://ekfvoddl0321.dothome.co.kr/project/html/board.html
+    -->
+
+</head>
+<body>
+    <header id="header">
+        <div class="logo">
+            <span class="logo_img"></span>
+            <h1>Charge Find</h1>
+        </div>
+        <div class="header_hidden"></div>
+        <div class="menu_list">
+            <li><a href="#">지도</a></li>
+            <li><a href="#">뉴스</a></li>
+            <li><a href="#">커뮤니티</a></li>
+        </div>
+        </div>
+        <div class="nav">
+            <ul>
+                <li><a href="../login/login.php">로그인</a></li>
+                <li><a href="../login/join.php">회원가입</a></li>
+            </ul>
+        </div>
+    </header>
+<!-- //header -->
+
+<main id="main">
+    <div class="board_section">
+        <section class="board">
+            <div class="title">
+                <div class="title_box">
+                    <h2>자유게시판</h2>
+                    <p>고객 여러분의 편리한 이용을 위한 다양한 서비스를 제공합니다.</p>
+                </div>
+                <div class="title_menu">
+                    <a href="#"><span>자유게시판</span></a>
+                    <a href="#"><span>공지사항</span></a>
+                    <a href="#"><span>고객센터</span></a>
+                </div>
+            </div>
+            <div class="board__inner">
+                <div class="board__search">
+                    <form action="boradSearch.php" name="boradSearch" method="get" class="board_form">
+                        <fieldset>
+                            <legend class="ir_so">게시판 검색 영역</legend>
+                            <div class="center">
+                                <input type="search" name="searchKeyword" class="search-form" placeholder="검색어를 입력하세요." aria-label="search" required>
+                                <button type="sumit" class="search_img"></button>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+                <div class="board__table">
+                    <table class="hover">
+                        <thead>
+                            <colgroup>
+                                <col style="width: 5%";>
+                                <col>
+                                <col style="width: 10%";>
+                                <col style="width: 12%";>
+                                <col style="width: 7%";>
+                            </colgroup>
+                            <tr>
+                                <th>번호</th>
+                                <th>제목</th>
+                                <th>등록자</th>
+                                <th>등록일</th>
+                                <th>조회수</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>전기차 충전소 자리 많이 비는 곳!!</td>
+                                <td>2022-03-04</td>
+                                <td>혀누</td>
+                                <td>10</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>전기차 충전소 자리 많이 비는 곳!!</td>
+                                <td>2022-03-04</td>
+                                <td>혀누</td>
+                                <td>10</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>전기차 충전소 자리 많이 비는 곳!!</td>
+                                <td>2022-03-04</td>
+                                <td>혀누</td>
+                                <td>10</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>전기차 충전소 자리 많이 비는 곳!!</td>
+                                <td>2022-03-04</td>
+                                <td>혀누</td>
+                                <td>10</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>전기차 충전소 자리 많이 비는 곳!!</td>
+                                <td>2022-03-04</td>
+                                <td>혀누</td>
+                                <td>10</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>전기차 충전소 자리 많이 비는 곳!!</td>
+                                <td>2022-03-04</td>
+                                <td>혀누</td>
+                                <td>10</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="right">
+                    <a href="boardWrite.php" class="search-btn">글쓰기</a>
+                </div>
+                <div class="board__pages">
+                    <ul>        
+                        <li class="active"><a href="board.php?page=1">1</a></li>
+                        <li><a href="board.php?page=2">2</a></li>
+                        <li><a href="board.php?page=3">3</a></li>
+                    </ul>
+                </div>
+        </section>
+    </div>
+</main>
+
+<!-- footer -->
+    <footer id="footer">
+        <div class="footer_logo"></div>
+        <div class="git">
+        <div class="git_logo"></div>
+        <ul>
+            <li>ChargerFind.github</li>
+            <li><a href="https://github.com/Kimhyunwoo72" target='blank'>https://github.com/Kimhyunwoo72</a></li>
+            <li><a href="https://github.com/songjunseop" target='blank'>https://github.com/songjunseop</a></li>
+            <li><a href="https://github.com/gwni0214" target='blank'>https://github.com/gwni0214</a></li>
+        </ul>
+        </div>
+        <div class="Mailto">
+            <ul>
+                <li>Mailto</li>
+                <li><a href="mailto:ekfvoddl0321@gmail.com">ekfvoddl0321@gmail.com</a></li>
+                <li><a href="mailto:sbxjs6999@naver.com">sbxjs6999@naver.com</a></li>
+                <li><a href="mailto:apdlvmf8044@gmail.com">apdlvmf8044@gmail.com</a></li>
+            </ul>
+        </div>
+    </footer>
+    <!-- //footer -->
+
+
+    <script>
+        document.querySelector(".header_hidden").addEventListener("click",()=>{
+        document.querySelector(".menu_list").classList.toggle("hid")
+        document.querySelector(".nav").classList.toggle("hid")
+        })
+</script>
+</body>
+</html>
