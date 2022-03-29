@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 여백 초기화 */
+        body,
+        div,
+        dl,
+        dt,
+        ul,
+        ol,
+        li,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        pre,
+        code,
+        form,
+        fieldset,
+        legend,
+        textarea,
+        p,
+        blockquote,
+        th,
+        td,
+        input,
+        select,
+        button,
+        figure,
+        figcaption {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 시멘틱 태그 초기화 */
+        article,
+        aside,
+        details,
+        figcaption,
+        figure,
+        footer,
+        header,
+        hgroup,
+        menu,
+        nav,
+        section {
+            display: block;
+            box-sizing: border-box;
+        }
+
+        .gray {
+            background-color: #f5f5f5;
+        }
+
+        /* 폰트 초기화 */
+        body,
+        button,
+        input,
+        select,
+        table,
+        textarea {
+            color: #222;
+            font-family: 'NexonLv1Gothic', 'AppleSDGothicNeo-Regular', 'Malgun Gothic', '맑은 고딕', dotum, 돋움;
+        }
+
+        /* 링크 초기화 */
+        a {
+            color: #222;
+            text-decoration: none;
+        }
+
+        /* 목록 초기화 */
+        ol,
+        ul,
+        li {
+            list-style: none;
+        }
+
+        /* 스타일 초기화 */
+        em,
+        address {
+            font-style: normal;
+        }
+
+        img,
+        fieldset,
+        button {
+            border: 0;
+        }
+
+        .ir_pm {
+            display: block;
+            overflow: hidden;
+            font-size: 0;
+            line-height: 0;
+            text-indent: -9999px;
+        }
+
+        .ir_wa {
+            display: block;
+            overflow: hidden;
+            position: relative;
+            z-index: -1;
+            width: 100%;
+            height: 100%;
+        }
+
+        .ir_so {
+            overflow: hidden;
+            position: absolute;
+            line-height: 0;
+            text-indent: -9999px;
+        }
+
+        #wrap {
+            width: 1920px;
+            height: 1027px;
+            background-color: #a0ccff;
+        }
+
+        .container {
+            width: 590px;
+            height: 611px;
+            background-color: #fff;
+            border-radius: 20px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .container h2 {
+            padding-left: 91px;
+            padding-top: 40px;
+            font-family: 'NexonLv1Gothic';
+            font-size: 34px;
+            color: #000;
+        }
+
+        fieldset {
+            margin-left: 91px;
+        }
+
+        .label_box {
+            display: flex;
+            font-size: 14px;
+            font-family: 'NexonLv1Gothic';
+            padding-top: 25px;
+        }
+
+        .label_box .logo {
+            background: url(../html/img/스프라이트.svg);
+            background-position: -100px 0;
+            width: 20px;
+            height: 20px;
+
+        }
+
+        .label {
+            padding-bottom: 13px;
+            padding-left: 9px;
+        }
+
+        .input {
+            width: 400px;
+            height: 50px;
+            background-color: #f5f5f5;
+            border-radius: 50px;
+            border: none;
+        }
+
+        #joinBtn {
+            width: 400px;
+            height: 50px;
+            margin-top: 56px;
+            background-color: #107af2;
+            color: #fff;
+            border-radius: 50px;
+            font-size: 16px;
+        }
+
+        .line {
+            color: #5c5d61;
+            font-size: 16px;
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
+            align-items: center;
+        }
+
+        .line::after {
+            content: '';
+            width: 200px;
+            height: 1px;
+            background-color: #5c5d61;
+            margin-left: 29px;
+        }
+
+        .line::before {
+            content: '';
+            width: 200px;
+            height: 1px;
+            background-color: #5c5d61;
+            margin-right: 29px;
+        }
+
+        .account {
+            margin-top: 50px;
+            margin-left: 94px;
+        }
+
+        .account a {
+            font-size: 16px;
+            background-color: #fff;
+            border-radius: 50px;
+            padding: 12px 153px;
+            border: 3px solid #000;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrap">
+        <div class="container">
+            <h2>로그인</h2>
+            <form action="loginSave.php" name="login" method="post">
+                <fieldset>
+                    <legend class="ir_so">회원가입 입력폼</legend>
+                    <div class="join-box">
+                        <div>
+                            <div class="label_box">
+                                <label for="youEmail" class="label">이메일 주소</label>
+                                <div class="logo"></div>
+                            </div>
+                            <input class="input" type="email" id="youEmail" name="youEmail" autocomplete="off" autofocus
+                                required>
+                        </div>
+                        <div>
+                            <div class="label_box">
+                                <label for="youPass" class="label">비밀번호</label>
+                                <div class="logo"></div>
+                            </div>
+                            <input class="input" type="password" id="youPass" name="youPass" maxlength="20"
+                                autocomplete="off" required>
+                        </div>
+                        
+                    </div>
+                    <button id="joinBtn" class="join-submit" type="submit">로그인 완료</button>
+                </fieldset>
+            </form>
+            <span class="line">또는</span>
+            <div class="account"><a href="#">계정생성하기</a></div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -53,7 +53,17 @@
                     </div>
                     <div class="blog__cont">
 <?php
-        $sql = "SELECT blogTitle, blogCategory, blogContents, blogAuthor, blogRegTime, blogImgFile FROM myBlog WHERE blogDelete = 1 ORDER BY blogID DESC";
+        if(isset($_GET['page'])) {
+            $page = (int) $_GET['page'];
+        }else {
+            $page = 1;
+        }
+
+        // 게시판 불러올 갯수
+        $pageView = 2;
+        $pageLimit = ($pageView * $page) - $pageView;
+
+        $sql = "SELECT blogTitle, blogCategory, blogContents, blogAuthor, blogRegTime, blogImgFile FROM myBlog WHERE blogDelete = 1 ORDER BY blogID DESC LIMIT {$pageLimit}, {$pageView}";
         $result = $connect -> query($sql);
         $blog = $result -> fetch_array(MYSQLI_ASSOC);
         
