@@ -203,9 +203,7 @@ html {
                 <div class="news__info">
                     <span class="author"><?=$news['newsAuthor']?></span>
                     <span class="date"><?=date('Y-m-d', $news['newsRegTime'])?></a></span>
-                     <!--좋아요 버튼-->
-               
-                        
+                     <!--좋아요 버튼-->                                       
                      <button class="button-star" onclick="like()">
                     <canvas></canvas>
                     <div class="label">
@@ -214,11 +212,12 @@ html {
                     <div class="number">
                         <span class="current"><?=$news['newsLike']?></span>
                         <span class="new">
-                        
+                        <?=$news['newsLike']+1?>
                         </span>
                         <div class="add">+1</div>
                     </div>
                     </button>
+                    
 
 
                 </div>
@@ -254,11 +253,11 @@ html {
     let likeCheck = false;
         let count = 0;
 
-        function emailChecking(){
+        function like(){
             let youLike = $(".current").val();
 
             if(youLike == null || youLike == ''){
-                $(".current").HTML(count);
+                $(".current").text(count);
             } else {
                         $.ajax({
                             type : "POST",
@@ -268,10 +267,10 @@ html {
 
                             success : function(data){
                                 if(data.result == "good"){
-                                    $(".new").HTML(count+1);
+                                    $(".new").text(count+1);
                                     likeCheck = true;
                                 } else {
-                                    $(".current").HTML(count-1);
+                                    $(".current").text(count-1);
                                     likeCheck = false;
                                 }
                             },

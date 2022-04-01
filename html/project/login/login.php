@@ -46,7 +46,7 @@
                             <div class="label_box">
                             <label for="youPass" class="label">비밀번호</label>
                             <a href="javascript:void(0);"><div class="logo"></div></a>
-                            <div><a href="emailFind.php" style="margin-left:200px; color:#777; font-size:12px;">비밀번호 찾기</a></div>
+                            <div><a href="passFind.php" style="margin-left:200px; color:#777; font-size:12px;">비밀번호 찾기</a></div>
                         </div>
                             <!-- hidden -->
                             <div class="hidden">

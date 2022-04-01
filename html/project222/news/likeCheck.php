@@ -1,5 +1,7 @@
 <?php
     include "../connect/connect.php";
+    include "../connect/session.php";
+    include "../connect/sessionCheck.php";
 
     //변수설정
     $type = $_POST['type'];

@@ -60,10 +60,10 @@
         }
 
         // 게시판 불러올 갯수
-        $pageView = 2;
+        $pageView = 10;
         $pageLimit = ($pageView * $page) - $pageView;
 
-        $sql = "SELECT blogTitle, blogCategory, blogContents, blogAuthor, blogRegTime, blogImgFile FROM myBlog WHERE blogDelete = 1 ORDER BY blogID DESC LIMIT {$pageLimit}, {$pageView}";
+        $sql = "SELECT blogID, blogTitle, blogCategory, blogContents, blogAuthor, blogRegTime, blogImgFile FROM myBlog WHERE blogDelete = 1 ORDER BY blogID DESC LIMIT {$pageLimit}, {$pageView}";
         $result = $connect -> query($sql);
         $blog = $result -> fetch_array(MYSQLI_ASSOC);
         
@@ -80,18 +80,19 @@
     <?php foreach($result as $blog){ ?>
       
          <article class="blog"> 
-         <figure class="blog__header"> 
-         <img src='../asset/img/blog/<?=$blog['blogImgFile']?>' alt="블로그 이미지"> 
+         <figure class="blog__header">
+         <a href="blogView.php?blogID=<?=$blog['blogID']?>" style="background-image:url(../asset/img/blog/<?=$blog['blogImgFile']?>)"></a>
+          
+         
          </figure> 
          <div class="blog__body"> 
          <span class="blog__cate"><?=$blog['blogCategory']?></span> 
-         <div class="blog__title"><?=$blog['blogTitle']?></div> 
+         <div class="blog__title"><a href="blogView.php?blogID=<?=$blog['blogID']?>"><?=$blog['blogTitle']?></a></div> 
          <div class="blog__desc"><?=$blog['blogContents']?></div> 
          <div class="blog__info"> 
          <span class="author"><a href="#"><?=$blog['blogAuthor']?></a></span> 
          <span class="date"><?=date('Y-m-d',$blog['blogRegTime'])?></span> 
-         <span class="modify"><a href="#">수정</a></span> 
-         <span class="delete"><a href="#">삭제</a></span> 
+          
          </div> 
          </div> 
          </article> 

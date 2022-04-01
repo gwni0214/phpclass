@@ -31,6 +31,9 @@
         <section class="join-type gray">
             <div class="member-form">
                 <h3>회원 정보</h3>
+                <div class="join-btn">
+                <a href="../login/logout.php">로그아웃</a>
+                </div>
                 <div class="join-intro">
 <?php
  $memberID = $_SESSION['memberID'];
@@ -106,6 +109,7 @@
                 <div class="join-btn">
                     <a href="mypageModify.php">수정하기</a>
                     <a href="mypageRemove.php">탈퇴하기</a>
+                    
                 </div>
             </div>
         </section>
