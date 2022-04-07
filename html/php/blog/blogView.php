@@ -52,8 +52,7 @@
             <div> 
                 <span class="author"><a href="#"><?=$blogInfo['blogAuthor']?></a></span> 
                 <span class="date"><?=date('Y-m-d',$blogInfo['blogRegTime'])?></span><br> 
-                <span class="modify"><a href="blogModify.php?blogID=<?=$blogInfo['blogID']?>">수정</a></span> 
-                <span class="delete"><a href="blogRemove.php?blogID=<?=$blogInfo['blogID']?>" onclick="return noticeRemove();">삭제</a></span> 
+                 
             </div> 
     </div>
 
@@ -64,7 +63,11 @@
                 <div>
                 <?=$blogInfo['blogContents']?>
                 </div>
-            
+                <div class="board__btn mt100">
+                        <a href="blog.php">목록보기</a>
+                        <a href="blogRemove.php?blogID=<?=$blogInfo['blogID']?>" onclick="return noticeRemove();">삭제하기</a>
+                        <a href="blogModify.php?blogID=<?=$blogInfo['blogID']?>">수정하기</a>
+                    </div>
             </div>
             <div class="blog__right">
                 <div class="ad">
@@ -72,8 +75,10 @@
                 </div>
             </div>
         </div>
+        
     </div>
     <?php } ?>
+    
                         
         </section>
     </main>

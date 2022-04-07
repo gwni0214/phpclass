@@ -12,56 +12,57 @@
     <title>Document</title>
 </head>
 <body>
-<?php
+    <?php
         $youEmail = $_POST['youEmail'];
         $youName = $_POST['youName'];
         $youBirth = $_POST['youBirth'];
         $youPhone = $_POST['youPhone'];
         $youPass = $_POST['youPass'];
-        $youNickName = $_POST['youNickName'];
+        $youNickname = $_POST['youNickName'];
+        $youIntro = $_POST['youIntro'];
+        $youGender = $_POST['youGender'];
+        $youSite = $_POST['youSite'];
         $memberID = $_SESSION['memberID'];
-        
-        // $youPhoto = $_POST['youPhoto'];
         $youPhoto = $_FILES['youPhoto'];
-        $youPhotoSize = $_FILES['youPhoto']['size'];
-        $youPhotoType = $_FILES['youPhoto']['type'];
-        $youPhotoName = $_FILES['youPhoto']['name'];
-        $youPhotoTmp = $_FILES['youPhoto']['tmp_name'];
+        $myPageSize = $_FILES['youPhoto']['size'];
+        $myPageType = $_FILES['youPhoto']['type'];
+        $myPageName = $_FILES['youPhoto']['name'];
+        $myPageTmp = $_FILES['youPhoto']['tmp_name'];
         
-        // echo $boardID;
-        // echo "<pre>";
-        // var_dump($youPhoto);
-        // echo "</pre>";
+        
         //쿼리문 작성
         $sql = "SELECT * FROM myMember WHERE memberID = {$memberID}";
         $result = $connect -> query($sql);
         if($result){
             $memberInfo = $result -> fetch_array(MYSQLI_ASSOC);
-            // echo "<pre>";
-            // var_dump($memberInfo);
-            // echo "</pre>";
+            
             // 이미지 업로드
-            $fileTypeExtension = explode("/", $youPhotoType);
+            $fileTypeExtension = explode("/", $myPageType);
             $fileType = $fileTypeExtension[0];  //image
             $fileExtension = $fileTypeExtension[1];  //jpeg
-            // 아이디 비밀번호 확인
+            // 아이디 비밀번호 확인            
             if($memberInfo['memberID'] == $memberID){
-                $youPhotoDir = "../asset/img/mypage/";
-                $youPhotoName = "Img_".time().rand(1,99999)."."."{$fileExtension}";
-                //수정(쿼리문 작성)
-                $sql = "UPDATE myMember SET youEmail = '{$youEmail}', youName = '{$youName}', youBirth = '{$youBirth}', youPhone = '{$youPhone}', youPass = '{$youPass}', youNickName = '{$youNickName}', youPhoto = '{$youPhotoName}' WHERE memberID = '{$memberID}'";
-                $connect -> query($sql);
-                $result = $connect -> query($sql);
-                $result = move_uploaded_file($youPhotoTmp, $youPhotoDir.$youPhotoName);
+                $myPageDir = "../asset/img/mypage/";
+                
+                $myPageName = "Img_".time().rand(1,99999)."."."{$fileExtension}";
+                if($fileType == "image"){
+                    $sql = "UPDATE myMember SET youEmail = '{$youEmail}', youIntro = '{$youIntro}', youGender = '{$youGender}', youSite = '{$youSite}', youName = '{$youName}', youBirth = '{$youBirth}', youPhone = '{$youPhone}', youPass = '{$youPass}', youNickName = '{$youNickname}', youPhoto = '{$myPageName}' WHERE memberID = '{$memberID}'";
+                    $connect -> query($sql);
+                    $result = $connect -> query($sql);
+                    $result = move_uploaded_file($myPageTmp, $myPageDir.$myPageName);
+                } else {
+                    $sql = "UPDATE myMember SET youEmail = '{$youEmail}', youIntro = '{$youIntro}', youGender = '{$youGender}', youSite = '{$youSite}', youName = '{$youName}', youBirth = '{$youBirth}', youPhone = '{$youPhone}', youPass = '{$youPass}', youNickName = '{$youNickname}' WHERE memberID = '{$memberID}'";
+                    $connect -> query($sql);
+                    $result = $connect -> query($sql);
+                    $result = move_uploaded_file($myPageTmp, $myPageDir.$myPageName);
+                    }               
             } else {
                 echo "오류";
             }
         }
         ?>
-        <script>
-        location.href = "mypage.php";
+    <script>
+        location.href = "../login/login.php";
     </script>
 </body>
 </html>
-
-

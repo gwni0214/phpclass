@@ -79,7 +79,17 @@
                     </div>
                 </div>
             </div>
+               <!-- layer -->
+            <div class="layer_bg"></div>
+            <div class="layer">
+                <h2>해설보기</h2>
+                <p id="quizComment"></p>
+                <a href="#" class="close">닫기</a>
+            </div>
+            <!-- layer -->
         </section>
+        
+      
     </main>
     <!--//main-->
 
@@ -89,6 +99,17 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
+        //레이어 팝업
+        $(".comment").click(function(){
+            $(".layer").slideDown(300);
+            $(".layer_bg").show(300);
+        });
+        $(".layer .close").click(function(){
+            $(".layer").slideUp(300);
+            $(".layer_bg").hide(300);
+        });
+
+
         let quizAnswer = "";
 
         function quizView(view){
@@ -98,6 +119,7 @@
             $("#select2 + span").text(view.quizChoice2);
             $("#select3 + span").text(view.quizChoice3);
             $("#select4 + span").text(view.quizChoice4);
+            $("#quizComment").text(view.quizComment);
             quizAnswer = view.quizAnswer;                                       
         }
         //다음 문제 넘어가기
@@ -157,6 +179,12 @@
         //과목 선택하면 체인지
         $("#quizSubject").change(function(){
             quizData();
+            $(".quiz__selects input").attr("disabled", false);
+            $(".quiz__selects input").prop("checked", false);   //checked 해제
+            $(".quiz__selects input").removeClass("correct");
+            $(".quiz__selects input").removeClass("incorrect");
+            $(".quiz__btn .next").fadeOut();
+            $(".quiz__btn .comment").fadeOut();
         });
 
         //정답 확인

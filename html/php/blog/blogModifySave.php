@@ -25,7 +25,8 @@
         $blogImgType = $_FILES['blogImgFile']['type'];
         $blogImgName = $_FILES['blogImgFile']['Name'];
         $blogImgTmp = $_FILES['blogImgFile']['tmp_name'];
-        // echo $boardID;
+        $regTime = time();
+        echo $blogID;
         //이미지 파일명 확인
         $fileTypeExtension = explode("/", $blogImgType);
         $fileType = $fileTypeExtension[0];  //image
@@ -38,27 +39,27 @@
         if($result){
             $memberInfo = $result -> fetch_array(MYSQLI_ASSOC);
             // echo "<pre>";
-            // var_dump($newsImgFile);
+            // var_dump($blogImgFile);
             // echo "</pre>";
             // 아이디 비밀번호 확인
             if($memberInfo['youPass'] == $youPass && $memberInfo['memberID'] == $memberID){
                 //수정(쿼리문 작성)
                 if($fileExtension == "jpg" || $fileExtension == "jpeg" || $fileExtension == "png" || $fileExtension == "gif"){
-                $sql = "UPDATE myNews SET newsTitle = '{$newsTitle}', newsContents = '{$newsContents}', newsImgFile = '{$newsImgName}' WHERE newsID = '{$newsID}'";
+                $sql = "UPDATE myBlog SET blogTitle = '{$blogTitle}', blogContents = '{$blogContents}', blogImgFile = '{$blogImgName}', blogModtime = '{$regTime}' WHERE blogID = '{$blogID}'";
                 $connect -> query($sql);
                 $result = $connect -> query($sql);
-                $result = move_uploaded_file($newsImgTmp, $myNewsDir.$newsImgName);
+                $result = move_uploaded_file($blogImgTmp, $blogDir.$blogImgName);
                 } else {
-                    $sql = "UPDATE myNews SET newsTitle = '{$newsTitle}', newsContents = '{$newsContents}' WHERE newsID = '{$newsID}'";
+                    $sql = "UPDATE myBlog SET blogTitle = '{$blogTitle}', blogContents = '{$blogContents}',  blogModtime = '{$regTime}' WHERE blogID = '{$blogID}'";
                     $connect -> query($sql);
                 }
             } else {
-                echo "<script>alert('비밀번호가 일치하지 않습니다. 다시 한번확인해주세요!'); history.back(1)</script>";
+                echo "<script>alert('비밀번호가 일치하지 않습니다. 다시 한번확인해주세요!');</script>";
             }
         }
     ?>
     <script>
-        location.href = "news.php";
+        location.href = "blog.php";
     </script>
 </body>
 </html>

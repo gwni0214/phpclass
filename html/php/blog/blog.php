@@ -42,8 +42,8 @@
                         <form action="blogSearch.php" method="get">
                             <fieldset>
                                 <legend class="ir_so">검색영역</legend>                                
-                                <input type="search" name="blogSearch" id="blogSearch" class="search" placeholder="검색어를 입력헤주세요!">
-                                <label for="blogSearch" class="ir_so">검색</label>
+                                <input type="search" name="searchKeyword" id="searchKeyword" class="search" placeholder="검색어를 입력헤주세요!">
+                                <label for="searchKeyword" class="ir_so">검색</label>
                                 <button class="button">검색</button>                                
                             </fieldset>                            
                         </form>                        
@@ -60,7 +60,7 @@
         }
 
         // 게시판 불러올 갯수
-        $pageView = 10;
+        $pageView = 5;
         $pageLimit = ($pageView * $page) - $pageView;
 
         $sql = "SELECT blogID, blogTitle, blogCategory, blogContents, blogAuthor, blogRegTime, blogImgFile FROM myBlog WHERE blogDelete = 1 ORDER BY blogID DESC LIMIT {$pageLimit}, {$pageView}";
@@ -120,32 +120,67 @@
                                         
                     <div class="blog__pages">
                         <ul>
-                            <li><a href="#">&lt;&lt;</a></li>
-                            <li><a href="#">&lt;</a></li>
-                            <li class="active">
-                                <a href="#">1</a>
-                            </li>
-                            <li>
-                                <a href="#">2</a>
-                            </li>
-                            <li>
-                                <a href="#">3</a>
-                            </li>
-                            <li>
-                                <a href="#">4</a>
-                            </li>
-                            <li>
-                                <a href="#">5</a>
-                            </li>
-                            <li>
-                                <a href="#">6</a>
-                            </li>
-                            <li>
-                                <a href="#">&gt;</a>
-                            </li>
-                            <li>
-                                <a href="#">&gt;&gt;</a>
-                            </li>                                                       
+                        <?php
+    $sql = "SELECT count(blogID) FROM myBlog";
+    $result = $connect -> query($sql);
+    $boardCount = $result -> fetch_array(MYSQLI_ASSOC);
+    $boardCount = $boardCount['count(blogID)'];
+    // echo "<pre>";
+    // var_dump($boardCount);
+    // echo "</pre>";
+    // echo $boardCount;
+    // 페이지 넘버 갯수
+    // 300/10 = 30
+    // 301/10 = 31
+    // 306/10 = 31
+    // 309/10 = 31
+    //총 페이지 갯수
+    $boardCount = ceil($boardCount/$pageView);
+
+    //현재 페이지를 기준으로 보여주고싶은 갯수
+    $pageCurrent = 5;
+    $startPage = $page - $pageCurrent;
+    $endPage = $page +$pageCurrent;
+    //처음 페이지 초기화(마이너스 값 안나오게)
+    if($startPage < 1){
+        $startPage = 1;
+    }
+    //마지막 페이지 초기화(30넘어서 안나오게)
+    if($endPage >= $boardCount){
+        $endPage = $boardCount;
+    }
+    //처음으로 페이지
+    if($page != 1){        
+        echo "<li><a href='blog.php?page=1'>&lt;&lt;</a></li>";
+    }
+    //이전 페이지
+    if($page != 1){
+        $prevPage = $page -1;
+        echo "<li><a href='blog.php?page={$prevPage}'>이전</a></li>";
+    }
+    
+    // echo $boardCount;
+    //1 2 3 4 5 6 7 8 9 10 11 12 13 14......
+    //페이지 넘버 표시
+    for($i=$startPage; $i<=$endPage; $i++){
+        $active = "";
+        if($i == $page){
+            $active = "active";
+        }
+        echo "<li class='{$active}'><a href='blog.php?page={$i}'>{$i}</a></li>";
+    }
+    //다음 페이지
+    if($page != 30){
+        $nextPage = $page +1;
+        echo "<li><a href='blog.php?page={$nextPage}'>다음</a></li>";
+    }
+    //마지막 페이지
+    if($page != 30){        
+        echo "<li><a href='blog.php?page=30'>&gt;&gt;</a></li>";
+    }
+
+    
+?>                                                      
                         </ul>
                     </div>
                 </div>

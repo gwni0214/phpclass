@@ -12,8 +12,7 @@
                 <li><a href="#">퀴즈</a>
                     <ul class="sub">
                         <li><a href="../quiz/quizCreate.php">문제 만들기</a></li>
-                        <li><a href="../quiz/quiz.php">문제 풀기</a></li>
-                        <li><a href="../quiz/quizExam.php">기출 문제</a></li>
+                        <li><a href="../quiz/quiz.php">문제 풀기</a></li>                      
                     </ul>
                 </li>
             </ul>

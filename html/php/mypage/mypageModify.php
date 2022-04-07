@@ -34,7 +34,7 @@
             <div class="member-form">
                 <h3>회원 정보</h3>
 
-                <form action="mypageModifySave.php" name="mypage" method="post">
+                <form action="mypageModifySave.php" name="mypage" method="post" enctype="multipart/form-data">
                     <fieldset>
                         <legend class="ir_so">회원정보 입력폼</legend>
                         <div class="join-intro">

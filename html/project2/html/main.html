@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charge Find</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/reset.css">
+    <link rel="stylesheet" href="../assets/css/common.css">
+    <link rel="stylesheet" href="../assets/css/font.css">
+
+    <!-- 주소
+    http://ekfvoddl0321.dothome.co.kr/project/html/main.html
+    -->
+    <style>
+                /* info */
+                .scrollTop {
+            position: fixed;
+            left: 20px;
+            bottom: 20px;
+            z-index: 1000;
+            background-color: rgba(0, 0, 0, 0.4);
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 50%;
+        }
+    </style>
+
+</head>
+<body>
+    <header id="header">
+        <div class="logo">
+            <span class="logo_img"></span>
+            <h1>Charge Find</h1>
+        </div>
+        <div class="header_hidden"></div>
+        <div class="menu_list">
+            <li><a href="#">지도</a></li>
+            <li><a href="#">뉴스</a></li>
+            <li><a href="#">커뮤니티</a></li>
+        </div>
+        </div>
+        <div class="nav">
+            <ul>
+                <li><a href="../login/login.php">로그인</a></li>
+                <li><a href="../login/join.php">회원가입</a></li>
+            </ul>
+        </div>
+    </header>
+<!-- //header -->
+
+<main id="main">
+    <div class="main_section">
+        <div class="main_img"></div>
+        <section class="section_info">
+            <h2>Grow Sustainably, Charger Find</h2>
+            <p>친환경 혁신으로 지속 가능한 성장을 추구합니다</p>
+            <div class="info_img">
+                <h3>에너지에 대한 <br>새로운 접근</h3>
+                <img src="../assets/img/img01.jpg" alt="img1">
+            </div>
+        </section>
+        <section class="section_info2">
+            <h3>전기 충전소의 새로운 가치를 창출하고<br>청정 연료를 통해 친환경 산업을 지지합니다.</h3>
+            <span>#친환경</span>
+            <span>#충전소</span>
+            <p>환경부는 2011년부터 온실가스와 대기오염물질을 줄여 대기질을 개성하고자
+                전기자동차 보급사업을 추진하고 있습니다. 
+                그에따라, 전기자동차 구매보조금을 지원하고 전기자동차 구매 시 세제 감경 등 운행 인센티브와 구매 보조금 지원 절차에 대해 알려드립니다.
+                또한, 실시간 정보를 고객분들과 공유하고, 안전하고 올바른 정보를 주고자 노력합니다.</p>
+        </section>
+        <section class="section_news">
+            <div class="news_img">
+                <div class="news_img1"></div>
+                <div class="news_img2"></div>
+                <div class="news_img3"></div>
+            </div>
+            <div class="news_text">
+                <h3>새로운 소식<br>놓치지 마세요!</h3>
+                <p class="news_text_1">실시간으로 바뀌는 전기차 시장
+                    우리는 여러분께 정보를 제공합니다.</p>
+                <span>#전기차</span><span>#지원금</span>
+                <p class="news_text_2">차저찾어는 다양한 정보를 통해 고객여러분과 소통하며, 함께 발전해 갑니다.
+                    실시간으로 바뀌는 가격정보와 위치정보를 업데이트하여,  새로운 뉴스정보를
+                    모두 바로바로 만나보세요!</p>
+            </div>
+        </section>
+    </div>
+</main>
+
+<!-- footer -->
+    <footer id="footer">
+        <div class="footer_logo"></div>
+        <div class="git">
+        <div class="git_logo"></div>
+        <ul>
+            <li>ChargerFind.github</li>
+            <li><a href="https://github.com/Kimhyunwoo72" target='blank'>https://github.com/Kimhyunwoo72</a></li>
+            <li><a href="https://github.com/songjunseop" target='blank'>https://github.com/songjunseop</a></li>
+            <li><a href="https://github.com/gwni0214" target='blank'>https://github.com/gwni0214</a></li>
+        </ul>
+        </div>
+        <div class="Mailto">
+            <ul>
+                <li>Mailto</li>
+                <li><a href="mailto:ekfvoddl0321@gmail.com">ekfvoddl0321@gmail.com</a></li>
+                <li><a href="mailto:sbxjs6999@naver.com">sbxjs6999@naver.com</a></li>
+                <li><a href="mailto:apdlvmf8044@gmail.com">apdlvmf8044@gmail.com</a></li>
+            </ul>
+        </div>
+    </footer>
+    <!-- //footer -->
+
+   <!-- info -->
+   <div class="scrollTop">
+    scrollTop : <span>0</span>px
+</div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script>
+        document.querySelector(".header_hidden").addEventListener("click",()=>{
+        document.querySelector(".menu_list").classList.toggle("hid")
+        document.querySelector(".nav").classList.toggle("hid")
+        })
+
+        // document.querySelector(".section_info h2").addEventListener("click",()=>{
+        //     alert("bb")
+        // })
+
+        window.addEventListener("scroll",()=>{
+            let scrollTop = window.pageYOffset || window.scrollY || document.documentElement.scrollTop
+
+            document.querySelector(".scrollTop span").innerText = Math.round(scrollTop)
+
+            if(scrollTop >= document.querySelector(".section_info").offsetTop - scrollTop){
+                   document.querySelector(".section_info h2").classList.add("show");
+                   document.querySelector(".section_info p").classList.add("show");
+            } 
+        })
+        // $(window).scroll(()=>{
+        //        if( $(window).scrollTop() >= $(".section_info").offset().top - $(window).height()/1.5){
+        //            $(".section_info h2").addClass("show");
+        //            $(".section_info p").addClass("show");
+        //     }
+        // })
+        $(window).scroll(()=>{
+               if( $(window).scrollTop() >= $(".info_img").offset().top - $(window).height()+300){
+                   $(".info_img img").addClass("show");
+                   $(".info_img h3").addClass("show");
+                   $(".section_info2 h3").addClass("show");
+            }
+        })
+        $(window).scroll(()=>{
+               if( $(window).scrollTop() >= $(".section_info2").offset().top - $(window).height()){
+                   $(".section_info2 span").addClass("show");
+                   $(".section_info2 p").addClass("show");
+            }
+        })
+        $(window).scroll(()=>{
+               if( $(window).scrollTop() >= $(".section_news").offset().top - $(window).height()+100){
+                   $(".news_img1").addClass("show");
+                   $(".news_img2").addClass("show");
+                   $(".news_img3").addClass("show");
+            }
+        })
+        $(window).scroll(()=>{
+               if( $(window).scrollTop() >= $(".news_text").offset().top - $(window).height()+400){
+                   $(".news_text_1").addClass("show");
+                   $(".news_text span").addClass("show");
+                   $(".news_text_2").addClass("show");
+                   $(".news_text h3").addClass("show");
+            }
+        })
+
+</script>
+</body>
+</html>

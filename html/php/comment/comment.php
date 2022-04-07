@@ -135,13 +135,17 @@
                                 $commentInfo = $result -> fetch_array(MYSQLI_ASSOC);
 
                                 echo "<div class='list'>";
+                                echo "<p class='comment__desc' style='display:none;'>".$commentInfo['commentID']."</p>";
                                 echo "<p class='comment__desc'>".$commentInfo['youText']."</p>";
+                                
                                 echo "<div class='icon'>";
                                 echo "<div class='comment__icon'>";
                                 echo "<span class='face'><img src='img/face.png' alt='아이콘'></span>";
                                 echo "<span class='name'>".$commentInfo['youName']."</span>";
                                 echo "<span class='date'>".date('Y-m-d', $commentInfo['regTime'])."</span>";
+                                
                                 echo "</div>";
+                                echo "<a href='commentRemove.php?commentID=".$commentInfo['commentID']."' onclick='return noticeRemove();'>삭제하기</a>";
                                 echo "</div>";
                                 echo "</div>";
                             }
@@ -159,5 +163,12 @@
     <?php
         include "../include/footer.php";
     ?>
+
+<script>
+            function noticeRemove(){
+                let notice = confirm("정말 삭제하시겠습니까?", "");
+                return notice;
+            }
+        </script>
 </body>
 </html>

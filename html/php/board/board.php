@@ -89,6 +89,7 @@
         } else {
             $page = 1;
         }
+      
         //게시판 불러올 갯수
         $pageView = 10;
         $pageLimit = ($pageView * $page) - $pageView;
