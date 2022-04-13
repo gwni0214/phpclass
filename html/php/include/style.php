@@ -16,5 +16,7 @@
     <link rel="stylesheet" href="../asset/css/reset.css">
     <link rel="stylesheet" href="../asset/css/common.css">
     <link rel="stylesheet" href="../asset/css/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
     
     

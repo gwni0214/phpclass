@@ -84,7 +84,7 @@
             <div class="layer">
                 <h2>해설보기</h2>
                 <p id="quizComment"></p>
-                <a href="#" class="close">닫기</a>
+                <a href="#javascript;;" class="close">닫기</a>
             </div>
             <!-- layer -->
         </section>
@@ -101,12 +101,12 @@
     <script>
         //레이어 팝업
         $(".comment").click(function(){
-            $(".layer").slideDown(300);
-            $(".layer_bg").show(300);
+            $(".layer").show();
+            $(".layer_bg").show();
         });
         $(".layer .close").click(function(){
             $(".layer").slideUp(300);
-            $(".layer_bg").hide(300);
+            $(".layer_bg").hide();
         });
 
 

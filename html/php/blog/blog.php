@@ -60,7 +60,7 @@
         }
 
         // 게시판 불러올 갯수
-        $pageView = 5;
+        $pageView = 3;
         $pageLimit = ($pageView * $page) - $pageView;
 
         $sql = "SELECT blogID, blogTitle, blogCategory, blogContents, blogAuthor, blogRegTime, blogImgFile FROM myBlog WHERE blogDelete = 1 ORDER BY blogID DESC LIMIT {$pageLimit}, {$pageView}";
@@ -151,7 +151,9 @@
     }
     //처음으로 페이지
     if($page != 1){        
-        echo "<li><a href='blog.php?page=1'>&lt;&lt;</a></li>";
+        echo "<li><a href='blog.php?page=1'><span class='material-icons'>
+        keyboard_double_arrow_left
+        </span></a></li>";
     }
     //이전 페이지
     if($page != 1){
@@ -170,13 +172,15 @@
         echo "<li class='{$active}'><a href='blog.php?page={$i}'>{$i}</a></li>";
     }
     //다음 페이지
-    if($page != 30){
+    if($page != $endPage && $boardCount != 0){
         $nextPage = $page +1;
         echo "<li><a href='blog.php?page={$nextPage}'>다음</a></li>";
     }
     //마지막 페이지
-    if($page != 30){        
-        echo "<li><a href='blog.php?page=30'>&gt;&gt;</a></li>";
+    if($page != $endPage && $boardCount != 0){        
+        echo "<li><a href='blog.php?page={$boardCount}'><span class='material-icons'>
+        keyboard_double_arrow_right
+        </span></a></li>";
     }
 
     

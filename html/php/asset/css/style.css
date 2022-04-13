@@ -72,11 +72,24 @@
 }
 #header .member .setting {
     border: 0;
+    margin-top: 5px;
 }
-#header .member .setting svg {
+#header .member .setting .Photo {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+}
+#header .member .setting .Photo img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    
+}
+/* #header .member .setting svg {
     vertical-align: -8px;
     padding-right: 5px;
-}
+} */
 #header .member a {
     display: inline-block;
     padding: 9px 22px;
@@ -139,10 +152,11 @@
     text-align: center;    
 }
 /* Join */
+
 .join-type {
     padding: 150px 0;
 }
-.member-form {
+.member-form {   
     max-width: 665px;
     border: 1px solid #DEDEDE;
     background: #fff;
@@ -344,7 +358,7 @@
 .card__desc {
     
     font-size: 18px;
-    line-height: 1.4;
+    line-height: 1.6;
     color: #5b5b5b;
     font-weight: 300;
     margin-bottom: 20px;
@@ -444,7 +458,9 @@
 
 
 /*board*/
-
+.board__inner {
+    padding: 50px;
+}
 .board__search .result {
     text-align: left;
     margin-bottom: 10px;
@@ -691,8 +707,14 @@
 .blog__pages {
     margin-top: 100px;
 }
+.blog__pages ul {
+    display: flex;
+    justify-content: center;
+}
 .blog__pages li {
     display: inline;
+    position: relative;
+    margin-right: 5px;
 }
 .blog__pages li a {
     width: 40px;
@@ -703,7 +725,14 @@
     font-size: 14px;
     line-height: 40px;
     border-radius: 50%;
+    position: relative;
 }
+.blog__pages li a span {
+    position: absolute;
+    right: 7px;
+    top: 7px;
+}
+
 .blog__pages li.active a {
     background: #000;
     color: #fff;
@@ -1182,18 +1211,19 @@
     font-size: 18px;
 }
 .slider .desc h4 {
-    font-size: 110px;
+    font-size: 4.7vw;
     font-weight: 300;
     margin-left: -8px;
 }
 .slider .desc p {
-    font-size: 24px;
+    font-size: 1.5vw;
     font-weight: 300;
     margin-bottom: 100px;
 }
 .slider .desc .btn a {
-    font-size: 16px;
-    padding: 11px 50px;
+    font-size: 1vw;
+    padding: 1vw 2.5vw;
+    margin-right: 5px;
     display: inline-block;
 }
 .slider .desc .btn .white {
@@ -1311,13 +1341,18 @@
 }
 @media(max-width:1300px){
     .slider .desc {
-        padding: 100px 50px;
+        padding-top: 100px;
+        padding-left: 50px;
     }
     .slider .desc p {
-        margin-bottom: 60px;
+        
     }
 }
 @media(max-width:830px){
+    .slider .desc {
+        padding-top: 100px;
+        padding-left: 50px;    
+    }
     .slider .desc span {
         font-size: 16px;
     }
@@ -1380,4 +1415,7 @@
     position: absolute;
     bottom: 20px; 
     right: 20px;
+}
+#ddArrow {
+    
 }

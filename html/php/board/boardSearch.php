@@ -193,13 +193,13 @@
         echo "<li class='{$active}'><a href='boardSearch.php?page={$i}&searchKeyword={$searchKeyword}&searchOption={$searchOption}'>{$i}</a></li>";
     }
     //다음 페이지
-    if($page != 30 && $page != 1){
+    if($page != $endPage && $page = $count2){
         $nextPage = $page +1;
         echo "<li><a href='boardSearch.php?page={$nextPage}&searchKeyword={$searchKeyword}&searchOption={$searchOption}'>다음</a></li>";
     } 
     //마지막 페이지
-    if($page != 30 && $page !=1){        
-        echo "<li><a href='boardSearch.php?page=30&searchKeyword={$searchKeyword}&searchOption={$searchOption}'>마지막으로</a></li>";
+    if($page != $endPage && $page = $count2){              
+        echo "<li><a href='boardSearch.php?page={$boardCount}&searchKeyword={$searchKeyword}&searchOption={$searchOption}'>마지막으로</a></li>";
     }
 
     

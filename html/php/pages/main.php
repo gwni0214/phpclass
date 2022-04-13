@@ -192,7 +192,7 @@
             <div class="layer">
                 <h2>해설보기</h2>
                 <p id="quizComment"></p>
-                <a href="#" class="close">닫기</a>
+                <a href="#javascript;;" class="close">닫기</a>
             </div>
             <!-- layer -->
         </section>
@@ -201,12 +201,12 @@
 
              //레이어 팝업
                 $(".comment").click(function(){                   
-                    $(".layer").slideDown(300);
-                    $(".layer_bg").show(300);
+                    $(".layer").show();
+                    $(".layer_bg").show();
                 });
                 $(".layer .close").click(function(){
                     $(".layer").slideUp(300);
-                    $(".layer_bg").hide(300);
+                    $(".layer_bg").hide(0);
                 });
         let quizAnswer = "";
 
@@ -303,6 +303,55 @@
             $(".quiz__btn .comment").fadeOut();
         });
     </script>
+    <div class="container">
+     <div class="card__inner mb100">
+                <article class="card">
+                    <figure class="card__header">
+                        <img class="card__img" src="../comment/img/card1.jpg" alt="이미지1">
+                    </figure>
+                    <div class="card__body">
+                        <h3 class="card__title">푸른 초원의 목장</h3>
+                        <p class="card__desc">대관령 같기도 하고 알프스의 목장 같기도하죠? 자연과 함께하고 싶네요~ 날씨가 좋은 날에 공원이라도 가서 잠시 누워보는건 어떨까요?</p>
+                        <a class="card__btn" href="../blog/blog.php">
+                            더 자세히 보기
+                            <svg width="52" height="8" viewBox="0 0 52 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M51.3536 4.35355C51.5488 4.15829 51.5488 3.84171 51.3536 3.64645L48.1716 0.464466C47.9763 0.269204 47.6597 0.269204 47.4645 0.464466C47.2692 0.659728 47.2692 0.976311 47.4645 1.17157L50.2929 4L47.4645 6.82843C47.2692 7.02369 47.2692 7.34027 47.4645 7.53553C47.6597 7.7308 47.9763 7.7308 48.1716 7.53553L51.3536 4.35355ZM0 4.5H51V3.5H0V4.5Z" fill="#5B5B5B"/>
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+                <article class="card">
+                    <figure class="card__header">
+                        <img class="card__img" src="../comment/img/card2.jpg" alt="이미지2">
+                    </figure>
+                    <div class="card__body">
+                        <h3 class="card__title">시원한 바람이 부는 계곡</h3>
+                        <p class="card__desc">어디론가 훌쩍 떠나버리고 싶은 날 이렇게 시원한 바람이 부는 계곡 사진이라도 보면 마음이 뻥 뚫리는듯 하죠? 창문을 열고 바람을 느껴보며 기분전환을 하는건 어떨까요?</p>
+                        <a class="card__btn" href="../blog/blog.php">
+                            더 자세히 보기
+                            <svg width="52" height="8" viewBox="0 0 52 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M51.3536 4.35355C51.5488 4.15829 51.5488 3.84171 51.3536 3.64645L48.1716 0.464466C47.9763 0.269204 47.6597 0.269204 47.4645 0.464466C47.2692 0.659728 47.2692 0.976311 47.4645 1.17157L50.2929 4L47.4645 6.82843C47.2692 7.02369 47.2692 7.34027 47.4645 7.53553C47.6597 7.7308 47.9763 7.7308 48.1716 7.53553L51.3536 4.35355ZM0 4.5H51V3.5H0V4.5Z" fill="#5B5B5B"/>
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+                <article class="card">
+                    <figure class="card__header">
+                        <img class="card__img" src="../comment/img/card3.jpg" alt="이미지3">
+                    </figure>
+                    <div class="card__body">
+                        <h3 class="card__title">노을이 아름다운 해변</h3>
+                        <p class="card__desc">노을이 지는 아름다운 해변이에요! 바다에 가서 물에 발도 담그며 물놀이를 하고싶네요~ 집에만 있지말고 가까운 바다에 나들이를 가는건 어떤가요? 상상만해도 좋네요.</p>
+                        <a class="card__btn" href="../blog/blog.php">
+                            더 자세히 보기
+                            <svg width="52" height="8" viewBox="0 0 52 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M51.3536 4.35355C51.5488 4.15829 51.5488 3.84171 51.3536 3.64645L48.1716 0.464466C47.9763 0.269204 47.6597 0.269204 47.4645 0.464466C47.2692 0.659728 47.2692 0.976311 47.4645 1.17157L50.2929 4L47.4645 6.82843C47.2692 7.02369 47.2692 7.34027 47.4645 7.53553C47.6597 7.7308 47.9763 7.7308 48.1716 7.53553L51.3536 4.35355ZM0 4.5H51V3.5H0V4.5Z" fill="#5B5B5B"/>
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+            </div>
+            </div>
     <!--blog__type-->
     <section id="notice-type" class="section center mb100 gray">
         <div class="container">
@@ -393,12 +442,8 @@
             sliderInner.style.left = -100 * (index+1)+"vw";
 
             currentIndex = index;
-            //닷 버튼 액티브 활성화
-            dotActive = document.querySelectorAll(".slider__dot .dot"); 
-            dotActive.forEach((el)=>{
-                el.classList.remove("active");                  
-            });
-            dotActive[index].classList.add("active");            
+            dotAct();   
+            console.log(currentIndex);     
         };
         
 
@@ -423,7 +468,23 @@
         }
         dotInit();
         
-
+        //닷 버튼 액티브 활성화 
+        function dotAct(){           
+        dotActive = document.querySelectorAll(".slider__dot .dot"); 
+            dotActive.forEach((el)=>{
+                el.classList.remove("active");                  
+            });
+            if(currentIndex == sliderLength){   //마지막 이미지 왔을 때
+                dotActive[0].classList.add("active");
+            } else if(currentIndex == -1){
+                dotActive[sliderLength-1].classList.add("active");
+            } else {
+                dotActive[currentIndex].classList.add("active");   //현재 보고있는 닷 활성화
+            }       
+           
+            
+        }
+       
         function autoPlay(){
             sliderTimer = setInterval(() => { 
                 gotoSlider(currentIndex + 1);
@@ -447,30 +508,48 @@
                 currentIndex = 0;
             }
         });
-
+        //마우스엔터 이벤트
         sliderInner.addEventListener("mouseenter", () => {
             stopPlay();
-        })
+        });
         sliderInner.addEventListener("mouseleave", () => {
             let stopClass = document.querySelector(".stop").classList.contains("show");
             if(stopClass){
                 autoPlay();
             }
-        })
+        });
+        sliderBtnPrev.addEventListener("mouseenter", () => {
+            stopPlay();
+        });
+        sliderBtnNext.addEventListener("mouseenter", () => {
+            stopPlay();
+        });
+        document.querySelector(".play").addEventListener("mouseenter", () => {
+            stopPlay();
+        });
+        document.querySelector(".stop").addEventListener("mouseenter", () => {
+            stopPlay();
+        });
 
-        document.querySelector(".play").addEventListener("click", () => {
+    
+
+       //플레이, 정지 이벤트
+       document.querySelector(".play").addEventListener("click",()=>{
             document.querySelector(".play").classList.remove("show");
             document.querySelector(".stop").classList.add("show");
-            autoPlay()
-        })
-
-        document.querySelector(".stop").addEventListener("click", () => {
+            autoPlay();
+        });
+        document.querySelector(".stop").addEventListener("click",()=>{
             document.querySelector(".stop").classList.remove("show");
-            document.querySelector(".play").classList.add("show");
+            document.querySelector(".play").classList.add("show");                                  
             stopPlay();
-        })
+        });
+
 
         document.querySelectorAll(".slider__dot .dot").forEach((el,i)=>{
+            el.addEventListener("mouseenter", () => {
+            stopPlay();
+            });
             el.addEventListener("click",()=>{
                 gotoSlider(i);
             })

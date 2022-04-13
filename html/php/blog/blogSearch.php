@@ -167,12 +167,12 @@
         echo "<li class='{$active}'><a href='blogSearch.php?page={$i}&searchKeyword={$searchKeyword}'>{$i}</a></li>";
     }
     //다음 페이지
-    if($page != 30 && $page != 1){
+    if($page != $endPage && $page = $count2){
         $nextPage = $page +1;
         echo "<li><a href='blogSearch.php?page={$nextPage}&searchKeyword={$searchKeyword}'>다음</a></li>";
     }
     //마지막 페이지
-    if($page != 30 && $page != 1){        
+    if($page != $endPage && $page = $count2){        
         echo "<li><a href='blogSearch.php?page=30&searchKeyword={$searchKeyword}'>&gt;&gt;</a></li>";
     }
 

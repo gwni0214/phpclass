@@ -48,12 +48,12 @@
         echo "<li class='{$active}'><a href='board.php?page={$i}'>{$i}</a></li>";
     }
     //다음 페이지
-    if($page != 30){
+    if($page != 30 && $boardCount != 0){
         $nextPage = $page +1;
         echo "<li><a href='board.php?page={$nextPage}'>다음</a></li>";
     }
     //마지막 페이지
-    if($page != 30){        
+    if($page != 30 && $boardCount != 0){        
         echo "<li><a href='board.php?page=30'>마지막으로</a></li>";
     }
 

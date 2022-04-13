@@ -1,7 +1,16 @@
 <!-- 주소 
     ekfvoddl0321.dothome.co.kr/project/include/header.php
  -->
+<?php
+    $memberID = $_SESSION['memberID'];
 
+    $sql = "SELECT * FROM myProject WHERE memberID = {$memberID}";
+    $result = $connect -> query($sql);
+    
+
+    if($result){
+        $img = $result -> fetch_array(MYSQLI_ASSOC);
+?>
  <header id="header">
         <div class="logo">
             <span class="logo_img"></span>
@@ -21,14 +30,7 @@
                     //  echo "<pre>";
                     //  var_dump($_SESSION);
                     //  echo "</pre>";
-                    $memberID = $_SESSION['memberID'];
-
-                    $sql = "SELECT * FROM myProject WHERE memberID = {$memberID}";
-                    $result = $connect -> query($sql);
                     
-                
-                    if($result){
-                        $img = $result -> fetch_array(MYSQLI_ASSOC);
                  
             ?>
             <li class="setting_li"><a href="../mypage/mypage.php" class="setting">
