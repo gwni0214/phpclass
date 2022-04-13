@@ -35,6 +35,9 @@
                     $youName = $_POST['youName'];
                     $youBirth = $_POST['youBirth'];
                     $youPhone = $_POST['youPhone'];
+                    $youGender = $_POST['youGender'];
+                    $youPhoto = 'default.svg';
+                   
                     $regTime = time();
 
                     $youEmail = $connect -> real_escape_string(trim($_POST['youEmail']));
@@ -45,7 +48,7 @@
                     $youPhone = $connect -> real_escape_string(trim($_POST['youPhone']));
                   
                     $youPass = $connect -> real_escape_string(trim($_POST['youPass']));
-                    $youPass = sha1("web".$youPass);
+                    // $youPass = sha1("web".$youPass);
             
             // echo $youEmail, $youPass, $youPass, $youName, $youBirth, $youPhone, $regTime;
 
@@ -57,7 +60,7 @@
 
             //회원가입
             
-                $sql = "INSERT INTO myMember(youEmail, youNickName, youPass, youName, youBirth, youPhone, regTime) VALUES('$youEmail', '$youNickName', '$youPass', '$youName', '$youBirth', '$youPhone', '$regTime')";
+                $sql = "INSERT INTO myMember(youEmail, youNickName, youPass, youName, youBirth, youPhone, youPhoto, regTime) VALUES('$youEmail', '$youNickName', '$youPass', '$youName', '$youBirth', '$youPhone', '$youPhoto', '$regTime')";
 
                 $result = $connect -> query($sql);
 
