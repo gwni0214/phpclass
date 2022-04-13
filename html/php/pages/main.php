@@ -443,7 +443,8 @@
 
             currentIndex = index;
             dotAct();   
-            console.log(currentIndex);     
+            console.log(currentIndex);
+                 
         };
         
 
@@ -476,13 +477,9 @@
             });
             if(currentIndex == sliderLength){   //마지막 이미지 왔을 때
                 dotActive[0].classList.add("active");
-            } else if(currentIndex == -1){
-                dotActive[sliderLength-1].classList.add("active");
-            } else {
+            } else {             
                 dotActive[currentIndex].classList.add("active");   //현재 보고있는 닷 활성화
-            }       
-           
-            
+            }                         
         }
        
         function autoPlay(){
