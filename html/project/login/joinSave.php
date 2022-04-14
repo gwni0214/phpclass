@@ -57,7 +57,6 @@ $youNickname = $connect -> real_escape_string(trim($_POST['youNickname']));
 $youName = $connect -> real_escape_string(trim($_POST['youName']));
 $youBirth = $connect -> real_escape_string(trim($_POST['youBirth']));
 $youPhone = $connect -> real_escape_string(trim($_POST['youPhone']));
-
 $youPass = $connect -> real_escape_string(trim($_POST['youPass']));
 
 

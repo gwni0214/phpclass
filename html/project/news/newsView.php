@@ -10,7 +10,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>뉴스 보기</title>
-    
 
         <!-- 주소
         ekfvoddl0321.dothome.co.kr/project/board/boardView.php 
@@ -74,8 +73,11 @@
     }
 ?>
 
-            
-                    <div class="board__btn">                       
+                    <!--좋아요-->
+                    <button type="button" class="btn-like" data-name="<?=$newsInfo['newsID']?>" style="float:left; margin-top:10px; ">
+                        <span class="heart_shape">좋아요♡</span><span class="likeCount" style="margin-left:10px;"><?=$newsInfo['newsLike']?></span></span>                        
+                    </button>
+                    <div class="board__btn">                     
                         <a href="news.php">목록보기</a>
                         <a href="newsRemove.php?newsID=<?=$newsID?>" onclick="return newsRemove();">삭제하기</a>
                         <a href="newsModify.php?newsID=<?=$newsID?>">수정하기</a>
@@ -92,13 +94,54 @@
         include "../include/footer.php";
     ?>
     <!-- //footer -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+    var memberID = "<?=$memberID?>"
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+if(!memberID){
+    $(".btn-like").click(function(){
+        alert("로그인 후 이용해주세요!");
+    })
+    
+} else {
 
-
-
-
-
+    $(".btn-like").on("click", function(e) {
+        var button = $(e.currentTarget || e.target)
+        var likeCount = button.find(".likeCount")
+        var heartShape = button.find(".heart_shape")
+        // console.log(heartShape);
+        $.ajax({
+            type : "POST",
+            url : "like.php",
+            data : {"articleId": button.data('name'), "memberID": memberID},
+            dataType : "json",
+            success : function(data){
+                var addCount = (data.data == "like" ? 1 : data.data == "unlike" ? -1 : 0)
+                likeCount.text(+likeCount.text() + addCount)
+                heartShape.text(data.data == "like" ? "좋아요♥" : data.data == "unlike" ? "좋아요♡" : "♡")
+            },
+            error : function(request, status, error){
+                        console.log("request" + request);
+                        console.log("status" + status);
+                        console.log("error" + error);
+            }
+        })
+    })
+    $(".btn-like").each(function(idx, el) {
+        var button = $(el)
+        var heartShape = button.find(".heart_shape")
+        $.get("like.php", {
+            getLikedByCode: button.data('name')
+        }, function(res) {
+            if (res == "unliked") {
+                    heartShape.find("i").removeClass("fas").addClass("far")
+                } else if (res == "liked") {
+                    heartShape.find("i").removeClass("far").addClass("fas")
+                }
+        })
+    })
+}
+</script>
 </body>
 </html>
 

@@ -43,6 +43,7 @@
     //쿼리문 작성
     $sql = "SELECT b.newsID, b.newsTitle, b.newsContents, m.youName, b.newsRegTime, b.newsImgFile, b.newsView FROM myNews b JOIN myProject m ON(b.memberID = m.memberID) WHERE b.newsTitle LIKE '%{$searchKeyword}%' ORDER BY newsID DESC" ;
     $result = $connect -> query($sql);
+    
     //갯수파악
     if($result){
         $count2 = $result -> num_rows;

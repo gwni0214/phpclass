@@ -10,7 +10,6 @@
     $sql .= "newsView int(10) NOT NULL,";
     $sql .= "newsImgFile varchar(100) DEFAULT NULL,";
     $sql .= "newsDelete int(10) NOT NULL,";
-    $sql .= "newsLike int(10) NOT NULL,";
     $sql .= "newsRegTime int(20) NOT NULL,";
     $sql .= "PRIMARY KEY (newsID)";
     $sql .= ") charset=utf8;";

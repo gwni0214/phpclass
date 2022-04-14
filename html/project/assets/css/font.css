@@ -183,14 +183,3 @@
          url('https://cdn.jsdelivr.net/gh/webfontworld/Noto/NotoSansKR-Black.ttf') format("truetype");
     font-display: swap;
 } 
-@font-face {
-    font-family: 'TwayFly';
-    font-weight: normal;
-    font-style: normal;
-    src: url('https://cdn.jsdelivr.net/gh/webfontworld/tway/TwayFly.eot');
-    src: url('https://cdn.jsdelivr.net/gh/webfontworld/tway/TwayFly.eot?#iefix') format('embedded-opentype'),
-         url('https://cdn.jsdelivr.net/gh/webfontworld/tway/TwayFly.woff2') format('woff2'),
-         url('https://cdn.jsdelivr.net/gh/webfontworld/tway/TwayFly.woff') format('woff'),
-         url('https://cdn.jsdelivr.net/gh/webfontworld/tway/TwayFly.ttf') format("truetype");
-    font-display: swap;
-}

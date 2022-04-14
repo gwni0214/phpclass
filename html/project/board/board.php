@@ -59,12 +59,14 @@
                                 <col style="width: 5%";>
                                 <col>
                                 <col style="width: 10%";>
+                                <col style="width: 10%";>
                                 <col style="width: 12%";>
                                 <col style="width: 7%";>
                             </colgroup>
                             <tr>
                                 <th>번호</th>
                                 <th>제목</th>
+                                <th>추천수</th>
                                 <th>등록자</th>
                                 <th>등록일</th>
                                 <th>조회수</th>
@@ -83,7 +85,7 @@
     $pageView = 10;
     $pageLimit = ($pageView * $page) - $pageView;
 
-    $sql = "SELECT b.boardID, b.boardTitle, m.youName, b.regTime, b.boardView FROM myProject_Board b JOIN myProject m
+    $sql = "SELECT * FROM myProject_Board b JOIN myProject m
      ON(m.memberID = b.memberID) ORDER by boardID DESC LIMIT {$pageLimit}, {$pageView}";
     $result = $connect -> query($sql);
 
@@ -96,6 +98,7 @@
                 echo "<tr>";
                 echo "<td>".$boardInfo['boardID']."</td>";
                 echo "<td class='left'><a href='boardView.php?boardID={$boardInfo['boardID']}'>".$boardInfo['boardTitle']."</a></td>";
+                echo "<td>".$boardInfo['boardLike']."</td>";
                 echo "<td>".$boardInfo['youName']."</td>";
                 echo "<td>".date('Y-m-d', $boardInfo['regTime'])."</td>";
                 echo "<td>".$boardInfo['boardView']."</td>";

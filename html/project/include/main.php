@@ -11,30 +11,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Charger Find</title>
     <!-- 주소
-  ekfvoddl0321.dothome.co.kr/project/include/main.php
- -->
- <!-- style -->
- <?php
-        include "../include/style.php";
-    ?>
+ekfvoddl0321.dothome.co.kr/project/include/main.php
+-->
+<!-- style -->
+<?php
+    include "../include/style.php";
+?>
  <!-- //style -->
- <!-- <?php
+<!-- <?php
                 echo "<pre>";
                 var_dump($_SESSION);
                 echo "</pre>";
-            ?> -->
-
+    ?> -->
 </head>
 <body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-    <?php
-        include "../include/header.php";
-    ?>
+
+<?php
+    include "../include/header.php";
+?>
 
 <main id="main">
-    <div class="main_section">
-        <div class="main_img"></div>
+    <div class="main_section" >
+        <div class="main_img"> </div>
         <section class="section_info">
             <h2>Grow Sustainably<br> Charger Find</h2>
             <p>친환경 혁신으로 지속 가능한 성장을 추구합니다</p>
@@ -57,32 +55,39 @@
         <section class="section_news">
             <div class="news_img">
 <?php
-if(isset($_GET['page'])){
-    $page = (int) $_GET['page'];
-} else {
-    $page = 1;
-}
+    if(isset($_GET['page'])){
+        $page = (int) $_GET['page'];
+    } else {
+        $page = 1;
+    }
 
-// 게시판 불러올 갯수
-$pageView = 3;
-$pageLimit = ($pageView * $page) - $pageView;
+    // 게시판 불러올 갯수
+    $pageView = 3;
+    $pageLimit = ($pageView * $page) - $pageView;
 
-$sql = "SELECT * FROM myNews ORDER BY newsID DESC LIMIT {$pageLimit}, {$pageView}";
+    $sql = "SELECT * FROM myNews ORDER BY newsID DESC LIMIT {$pageLimit}, {$pageView}";
 
-    $result = $connect -> query($sql);
+        $result = $connect -> query($sql);
 
-    if($result) {
-        $count = $result -> num_rows;
+        if($result) {
+            $count = $result -> num_rows;
 
-        if($count > 0) {
-            
+            if($count > 0) {
+
+            }
         }
-    }
-    for($i=1; $i<=3; $i++){
-        $news = $result -> fetch_array(MYSQLI_ASSOC);
-        echo "<a href='#'><div class='news_img".$i."' style='background-image: url(../assets/img/news/".$news['newsImgFile'].")'></div></a>";
-    }
 ?>
+    <?php for($i=1; $i<=3; $i++){ ?>
+        <?php $news = $result -> fetch_array(MYSQLI_ASSOC) ?>
+        <a href="../news/newsView.php?newsID=<?=$news['newsID']?>">
+            <div class="news_img<?=$i?>" style="background-image: url(../assets/img/news/<?=$news['newsImgFile']?>)">
+                <div class="background">
+                    <div class="white"><?=$news['newsTitle']?></div>
+                </div>    
+            </div>
+        </a>
+    <?php } ?>
+    
         </div>
             <div class="news_text">
                 <h3>새로운 소식<br>놓치지 마세요!</h3>
@@ -98,15 +103,15 @@ $sql = "SELECT * FROM myNews ORDER BY newsID DESC LIMIT {$pageLimit}, {$pageView
             <div class="community_box">
                 <h3>우리가 함께하는,<br>커뮤니티</h3>
                 <div class="community_list">
-                   <a href="../board/board.php"><div>
+                <a href="../board/board.php"><div>
                         <h4>자유게시판</h4>
                         <p>더 나은 세상을 위해<br>모두가 소통하는 공간</p>
                     </div></a> 
-                   <a href="../notice/notice.php"><div>
+                <a href="../notice/notice.php"><div>
                         <h4>공지사항</h4>
                         <p>새로운 소식을<br>빠르게 만나보세요</p>
                     </div></a> 
-                   <a href="../service/service.php"><div>
+                <a href="../service/service.php"><div>
                         <h4>고객센터</h4>
                         <p>무엇을 도와드릴까요?<br>전화 상담 문의</p>
                     </div></a> 
@@ -117,8 +122,8 @@ $sql = "SELECT * FROM myNews ORDER BY newsID DESC LIMIT {$pageLimit}, {$pageView
 </main>
 
 <?php
-        include "../include/footer.php";
-    ?>
+    include "../include/footer.php";
+?>
 
 
 <!-- script -->
@@ -144,45 +149,37 @@ $sql = "SELECT * FROM myNews ORDER BY newsID DESC LIMIT {$pageLimit}, {$pageView
         // })
 
         $(window).scroll(()=>{
-               if( $(window).scrollTop() >= $(".section_info").offset().top - $(window).height()/1.5){
-                   $(".section_info h2").addClass("show");
-                   $(".section_info p").addClass("show");
+            if( $(window).scrollTop() >= $(".section_info").offset().top - $(window).height()/1.5){
+                $(".section_info h2").addClass("show");
+                $(".section_info p").addClass("show");
             }
-        })
-        $(window).scroll(()=>{
-               if( $(window).scrollTop() >= $(".info_img").offset().top - $(window).height()+300){
-                   $(".info_img img").addClass("show");
-                   $(".info_img h3").addClass("show");
-                   $(".section_info2 h3").addClass("show");
+            if( $(window).scrollTop() >= $(".info_img").offset().top - $(window).height()+300){
+                $(".info_img img").addClass("show");
+                $(".info_img h3").addClass("show");
+                $(".section_info2 h3").addClass("show");
             }
-        })
-        $(window).scroll(()=>{
-               if( $(window).scrollTop() >= $(".section_info2").offset().top - $(window).height()){
-                   $(".section_info2 span").addClass("show");
-                   $(".section_info2 p").addClass("show");
+            if( $(window).scrollTop() >= $(".section_info2").offset().top - $(window).height()){
+                $(".section_info2 span").addClass("show");
+                $(".section_info2 p").addClass("show");
             }
-        })
-        $(window).scroll(()=>{
-               if( $(window).scrollTop() >= $(".section_news").offset().top - $(window).height()+100){
-                   $(".news_img1").addClass("show");
-                   $(".news_img2").addClass("show");
-                   $(".news_img3").addClass("show");
+            if( $(window).scrollTop() >= $(".section_news").offset().top - $(window).height()+100){
+                $(".news_img1").addClass("show");
+                $(".news_img2").addClass("show");
+                $(".news_img3").addClass("show");
             }
-        })
-        $(window).scroll(()=>{
-               if( $(window).scrollTop() >= $(".news_text").offset().top - $(window).height()+400){
-                   $(".news_text_1").addClass("show");
-                   $(".news_text span").addClass("show");
-                   $(".news_text_2").addClass("show");
-                   $(".news_text h3").addClass("show");
+            if( $(window).scrollTop() >= $(".news_text").offset().top - $(window).height()+400){
+                $(".news_text_1").addClass("show");
+                $(".news_text span").addClass("show");
+                $(".news_text_2").addClass("show");
+                $(".news_text h3").addClass("show");
             }
-        })
-        $(window).scroll(()=>{
-               if( $(window).scrollTop() >= $(".community_box").offset().top - $(window).height()){
-                   $(".community_box h3").addClass("show");
-                   $(".community_list a").addClass("show");
+            if( $(window).scrollTop() >= $(".community_box").offset().top - $(window).height()){
+                $(".community_box h3").addClass("show");
+                $(".community_list a").addClass("show");
             }
+            
         })
+
 
 </script>
 </body>

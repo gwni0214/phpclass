@@ -44,11 +44,12 @@
             <div class="board__inner">
                 <div class="board__View">
                 <?php
+    $memberID = $_SESSION['memberID'];
     $boardID = $_GET['boardID'];
 
     // echo $boardID; //화면에 누른게시글 아이디값이 나오는지 확인
 
-    $sql = "SELECT b.boardTitle, m.youName, b.regTime, b.boardView, b.boardContents FROM myProject_Board b JOIN myProject m ON(m.memberID = b.memberID) WHERE b.boardID = {$boardID}";
+    $sql = "SELECT * FROM myProject_Board b JOIN myProject m ON(m.memberID = b.memberID) WHERE b.boardID = {$boardID}";
     $result = $connect -> query($sql);
 
     $sql = "UPDATE myProject_Board SET boardView = boardView + 1 WHERE boardID = {$boardID}";
@@ -74,7 +75,10 @@
         echo " <div class='view_Con'>".$data2."</div>";
     }
 ?>
-
+                <!--좋아요-->
+                <button type="button" class="btn-like" data-name="<?=$boardInfo['boardID']?>" style="float:left; margin-top:10px; ">
+                        <span class="heart_shape">좋아요♡</span><span class="likeCount" style="margin-left:10px;"><?=$boardInfo['boardLike']?></span></span>                        
+                    </button>
                     <div class="board__btn">
                         <a href="board.php">목록보기</a>
                         <a href="boardRemove.php?boardID=<?=$boardID?>" onclick="return noticeRemove();">삭제하기</a>
@@ -92,6 +96,54 @@
         include "../include/footer.php";
     ?>
     <!-- //footer -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+    var memberID = "<?=$memberID?>";
+
+if(!memberID){
+    $(".btn-like").click(function(){
+        alert("로그인 후 이용해주세요!");
+    })
+    
+} else {
+
+    $(".btn-like").on("click", function(e) {
+        var button = $(e.currentTarget || e.target)
+        var likeCount = button.find(".likeCount")
+        var heartShape = button.find(".heart_shape")
+        // console.log(heartShape);
+        $.ajax({
+            type : "POST",
+            url : "boardLike.php",
+            data : {"articleId": button.data('name'), "memberID": memberID},
+            dataType : "json",
+            success : function(data){
+                var addCount = (data.data == "like" ? 1 : data.data == "unlike" ? -1 : 0)
+                likeCount.text(+likeCount.text() + addCount)
+                heartShape.text(data.data == "like" ? "좋아요♥" : data.data == "unlike" ? "좋아요♡" : "♡")
+            },
+            error : function(request, status, error){
+                        console.log("request" + request);
+                        console.log("status" + status);
+                        console.log("error" + error);
+            }
+        })
+    })
+    $(".btn-like").each(function(idx, el) {
+        var button = $(el)
+        var heartShape = button.find(".heart_shape")
+        $.get("boardLike.php", {
+            getLikedByCode: button.data('name')
+        }, function(res) {
+            if (res == "unliked") {
+                    heartShape.find("i").removeClass("fas").addClass("far")
+                } else if (res == "liked") {
+                    heartShape.find("i").removeClass("far").addClass("fas")
+                }
+        })
+    })
+}
+</script>
 </body>
 </html>
 
